@@ -29,7 +29,7 @@ Recoverability and SVD-based algorithms"</i> - C. Prévost, K. Usevich, D. Brie,
  
  Start by loading hyperspectral data. This parts manually generates the HSI and MSI from the groundtruth SRI, by computing the degradation matrices.
  Below is an example of a single spectral band for the HSI and MSI from the Indian Pines dataset.
- ADD IMAGE
+ <img src="images/init.jpg?raw=true"/>
  
  ### Run algorithms
  
@@ -40,6 +40,8 @@ Recoverability and SVD-based algorithms"</i> - C. Prévost, K. Usevich, D. Brie,
  [SRI_hat2, ~] = bscott(MSI,HSI,Pm,R,opts);
  ```
  The algorithms return the estimated SRI of given multilinear rank <b>R</b>. For BSCOTT, the HSI and MSI are split into corresponding <b>opts.Nblocks</b> blocks along the spatial dimensions.
+
+<img src="images/results.jpg?raw=true"/>
  
  ### Comparison metrics
  
