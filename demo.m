@@ -34,11 +34,11 @@ imagesc(MSI(:,:,1)); title('MSI - band 1'); colorbar
 
 R = [40 40 6]; opts.Nblocks = [4 4];
 fprintf('Running SCOTT with R = [%d %d %d]...\n',R)
-[SRI_hat1, ~] = scott2(HSI, MSI, P1, P2, Pm, R);
+tic; [SRI_hat1, ~] = scott2(HSI, MSI, P1, P2, Pm, R); t1= toc;
 
 R = [36 36 6];
 fprintf('Running BSCOTT with R = [%d %d %d] and [%d %d] blocks...\n',R, opts.Nblocks)
-[SRI_hat2, ~] = bscott(MSI,HSI,Pm,R,opts);
+tic; [SRI_hat2, ~] = bscott(MSI,HSI,Pm,R,opts); t2 = toc;
 
 figure(2)
 subplot(1,3,1)
@@ -52,9 +52,9 @@ imagesc(SRI_hat2(:,:,44)); title('Result of BSCOTT - band 44')
 
 err1 = cell2mat(compute_metrics(SRI,SRI_hat1,d1,d2));
 err2 = cell2mat(compute_metrics(SRI,SRI_hat2,d1,d2));
-tab = ["Algorithm" "R-SNR" "CC" "SAM" "ERGAS";...
-       "SCOTT" err1;...
-       "BSCOTT" err2];
+tab = ["Algorithm" "R-SNR" "CC" "SAM" "ERGAS" "Time (s)";...
+       "SCOTT" err1 t1;...
+       "BSCOTT" err2 t2];
 fprintf('Plot comparison metrics \n')   
 tab
 
