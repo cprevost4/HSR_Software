@@ -3,8 +3,8 @@
 Copyright (c) 2019 Clémence Prévost, Konstantin Usevich, Pierre Comon, David Brie <br>
 Contact: ```clemence.prevost@univ-lorraine.fr```
 
-This software reproduces the results from the paper <i>"Hyperspectral Super-Resolution with Coupled Tucker Approximation:
-Recoverability and SVD-based algorithms"</i> - C. Prévost, K. Usevich, D. Brie, P. Comon. <br><br>
+This MATLAB software reproduces the results from the article <cite>"Hyperspectral Super-Resolution with Coupled Tucker Approximation:
+Recoverability and SVD-based algorithms" - C. Prévost, K. Usevich, D. Brie, P. Comon</cite>. <br><br>
 [Link to the project](https://github.com/cprevost4/HSR_Software)
 
 ## Content
