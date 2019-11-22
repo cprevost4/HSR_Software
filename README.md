@@ -65,7 +65,7 @@ This MATLAB software reproduces the results from the following article:
  
  ### Comparison metrics
  
- You can then produce a table containing comparison metrics and computation time for the algorithms. In our example, this table becomes:
+ You can then generate a table of comparison metrics and computation time:
 
 
 | Algorithm | R-SNR   | CC       | SAM     | ERGAS   | Time (s) |
