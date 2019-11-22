@@ -19,26 +19,26 @@ This MATLAB software reproduces the results from the following article:
 
 ## Content
 
+ - demo.m: demo file with minimal requirements 
+ - /demos : contains demo files that produce tables and figures (including ```main.m```
  - /data : contains data for synthetic examples (Section VI.D)
- - /demos : contains demo files that produce tables and figures
+
  - /figures : where the tables and figures are saved
  - /images : contains illustrative figures for this ```README.md```
  - /src : contains helpful files to run the demos
 
 ## Minimal requirements
 
- In order to run the demo file ```demo.m```, you will need to add to your MATLAB path:
- - Tensorlab 3.0: https://www.tensorlab.net
- - Hyperspectral data: http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes
+ In order to run the demo file ```demo.m```, you will need to:
+ - Download and install Tensorlab 3.0: https://www.tensorlab.net
+ - Download some hyperspectral data from http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes and load them into MATLAB
       
 ## Full requirements
 
- In order to run the demo file ```demos/main.m```, you will need to add to your MATLAB path:
- - Tensorlab 3.0: https://www.tensorlab.net
- - Codes by C. Kanatsoulis: https://github.com/marhar19/HSR_via_tensor_decomposition
- - Codes for HySure: https://github.com/alfaiate/HySure
- - Codes for FUSE: https://github.com/qw245/BlindFuse
- - Hyperspectral data: http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes
+ In addition, in order to run the demo file ```demos/main.m```, you will need to:
+ - Download codes by C. Kanatsoulis from https://github.com/marhar19/HSR_via_tensor_decomposition and add them to your MATLAB path
+ - Download codes for HySure from https://github.com/alfaiate/HySure and add them to your MATLAB path
+ - Download codes for FUSE from https://github.com/qw245/BlindFuse and add them to your MATLAB path
  
  ## Demo file
  
