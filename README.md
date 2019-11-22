@@ -54,11 +54,12 @@ This MATLAB software reproduces the results from the following article:
  
  The next step is to run the algorithms SCOTT and BSCOTT (Blind-SCOTT).
  ```
- R = [40 40 6]; opts.Nblocks = [4 4];
+ R = [40 40 6]; 
  [SRI_hat1, ~] = scott2(HSI, MSI, P1, P2, Pm, R);
+ opts.Nblocks = [4 4];
  [SRI_hat2, ~] = bscott(MSI,HSI,Pm,R,opts);
  ```
- The algorithms return the estimated SRI of given multilinear rank <b>R</b>. For BSCOTT, the HSI and MSI are split into corresponding <b>opts.Nblocks</b> blocks along the spatial dimensions.
+ The algorithms return the estimated SRI of given multilinear rank <b>R</b>. For BSCOTT, the HSI and MSI are split into corresponding <b>opts.Nblocks</b> blocks along the spatial dimensions. Note that BSCOTT does not require the knowledge of <b>P1</b> and <b>P2</b>.
 
 <img src="images/results.jpg?raw=true"/>
  
