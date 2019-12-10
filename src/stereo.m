@@ -1,6 +1,7 @@
 function [SRI_hat, info] = stereo(HSI, MSI, P1, P2, Pm, ranks, opts)
 
 % STEREO provides estimation of SRI with an AO algorithm
+% /!\ This is our implementation of STEREO.
 % [SRI_hat, info] = STEREO(HSI, MSI, P1, P2, Pm, ranks, opts) returns
 % SRI_hat = [A,B,C] from HSI and MSI
 % 

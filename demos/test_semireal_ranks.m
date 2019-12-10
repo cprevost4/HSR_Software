@@ -1,6 +1,7 @@
 % EXPERIMENT 1: HOSVD FOR VARIOUS RANKS %
-% Copyright (c) 2018 Clemence Prevost, Konstantin Usevich, Pierre Comon, David Brie
-% https://github.com/cprevost4/HSR_Tucker
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
 % Contact: clemence.prevost@univ-lorraine.fr
 
 
@@ -25,7 +26,7 @@ for i=1:length(R1)
         if not((R3(j)<=size(MSI,3) || R1(i)<=size(HSI,1)) && (R1(i)<=min(R3(j),size(MSI,3))*R1(i) && R3(j)<=min(R1(i),size(HSI,1))^2))
             snr(i+9,j+1) = NaN; cost(i+9,j+1) = NaN;
         else  
-            [SRI_hat,info] = scott(HSI, MSI, P1, P2, Pm, R);
+            [SRI_hat,info] = scott2(HSI, MSI, P1, P2, Pm, R);
             snr(i+9,j+1) = r_snr(SRI,SRI_hat); 
             cost(i+9,j+1) = cost_scott(info.factors,info.core, HSI, MSI, lambda, P1,P2,Pm);
         end
@@ -75,7 +76,7 @@ for i=1:length(R1)
         if not((R3(j)<=size(MSI,3) || R1(i)<=size(HSI,1)) && (R1(i)<=min(R3(j),size(MSI,3))*R1(i) && R3(j)<=min(R1(i),size(HSI,1))^2))
             snr(i+9,j+1) = 0; cost(i+9,j+1) = 0;
         else  
-            [SRI_hat,info] = scott(HSI, MSI, P1, P2, Pm, R);
+            [SRI_hat,info] = scott2(HSI, MSI, P1, P2, Pm, R);
             snr(i+9,j+1) = r_snr(SRI,SRI_hat); 
             cost(i+9,j+1) = cost_scott(info.factors,info.core, HSI, MSI, lambda, P1,P2,Pm);
         end

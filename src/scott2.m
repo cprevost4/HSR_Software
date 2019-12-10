@@ -1,7 +1,7 @@
 function [SRI_hat, info] = scott2(HSI, MSI, P1, P2, Pm, R, opts)
 
-% SCOTT runs the SCOTT algorithm for specified rank R
-% [SRI_hat,info] = SCOTT(HSI, MSI, P1, P2, Pm, ranks, opts) returns 
+% SCOTT2 runs the SCOTT algorithm for specified rank R
+% [SRI_hat,info] = SCOTT2(HSI, MSI, P1, P2, Pm, ranks, opts) returns 
 % estimation of SRI and informative structure
 % 
 % INPUT ARGUMENTS:
@@ -34,7 +34,10 @@ end
 P1 = sparse(P1); P2 = sparse(P2); Pm = sparse(Pm);
 U_tilde = P1*U; V_tilde = P2*V; W_tilde = Pm*W;
 
-if (R(1)>size(HSI,1)||R(2)>size(HSI,2))
+if (R(1)>size(HSI,1)||R(2)>size(HSI,2)) && R(3)>size(MSI,3)
+    fprintf("Out of the identifiability region !")
+    SRI_hat = NaN; info = "Non-identifiable";
+elseif ((R(1)>size(HSI,1)||R(2)>size(HSI,2)) && R(3)<=size(MSI,3))
     A = U_tilde'*U_tilde;
     B = kron(eye(R(3)), V_tilde'*V_tilde);
     C = eye(R(1));
@@ -46,21 +49,22 @@ if (R(1)>size(HSI,1)||R(2)>size(HSI,2))
     else
      S = reshape(bartelsStewart(C,D,A,B,E),R);
     end 
+    SRI_hat = lmlragen({U,V,W},S);
+    info.factors = {U,V,W}; info.core = {S}; info.rank = {R};
 else
     A = kron(V_tilde'*V_tilde, U_tilde'*U_tilde);
-    A = A+ opts.alpha*norm(A,2)^2*ones(size(A,2));
+    A = A+ opts.alpha*norm(A,2)^2*eye(size(A,2));
     B = opts.lambda*(W_tilde'*W_tilde);
-    B = B+ opts.alpha*norm(A,2)^2*ones(size(B,2));
+    B = B+ opts.alpha*norm(A,2)^2*eye(size(B,2));
     b_old = tmprod(HSI,{U_tilde', V_tilde', W'},[1,2,3]) + opts.lambda * tmprod(MSI,{U', V', W_tilde'},[1,2,3]);
     C = reshape(b_old, R(1)*R(2), R(3));
     %S = reshape(bartelsStewart(A,[],[],B,C), R);
-    S = reshape(sylvester(A,B,C), R);
+    S = reshape(sylvester(A,B,C), R); 
+    SRI_hat = lmlragen({U,V,W},S);
+    info.factors = {U,V,W}; info.core = {S}; info.rank = {R};
 end
 
-SRI_hat = lmlragen({U,V,W},S);
-info.factors = {U,V,W};
-info.core = {S};
-info.rank = {R};
+
 
 end
 

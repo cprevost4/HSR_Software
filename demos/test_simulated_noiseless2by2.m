@@ -1,6 +1,7 @@
 % EXPERIMENT 1: R-SNR FOR NOISELESS SIMULATED SRI 2x2x2 %
-% Copyright (c) 2018 Clemence Prevost, Konstantin Usevich, Pierre Comon, David Brie
-% https://github.com/cprevost4/HSR_Tucker
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
 % Contact: clemence.prevost@univ-lorraine.fr
 
 %% Generate 2x2 noiseless dataset
@@ -29,7 +30,7 @@ fprintf('Generating Figure 8 ...')
 snr_stereo = []; snr_scott = []; snr_tenrec = [];
  for F=1:40
     try
-        [SRI_hat2, ~] = stereo3(HSI, MSI, P1,P2,Pm, F);
+        [SRI_hat2, ~] = stereo_adaptor(HSI, MSI, P1,P2,Pm, F);
         SRI_hat2 = real(SRI_hat2); snr_stereo(F,1) = r_snr(X,SRI_hat2);
     catch
         snr_stereo(F,1) = NaN;

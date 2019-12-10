@@ -1,6 +1,7 @@
-% EXPERIMENT 1: HOSVD FOR VARIOUS RANKS %
-% Copyright (c) 2018 Clemence Prevost, Konstantin Usevich, Pierre Comon, David Brie
-% https://github.com/cprevost4/HSR_Tucker
+% RESULTS ON SEMI-REAL DATA (BLIND) %
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
 % Contact: clemence.prevost@univ-lorraine.fr
 
 %% Table for Pavia University

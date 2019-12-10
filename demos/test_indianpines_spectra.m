@@ -1,6 +1,7 @@
-% EXPERIMENT 1: HOSVD FOR VARIOUS RANKS %
-% Copyright (c) 2018 Clemence Prevost, Konstantin Usevich, Pierre Comon, David Brie
-% https://github.com/cprevost4/HSR_Tucker
+% SPECTRA FOR INDIAN PINES %
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
 % Contact: clemence.prevost@univ-lorraine.fr
 
 %% Load Indian Pines + groundtruth data
@@ -34,10 +35,10 @@ saveas(gcf,'figures/fig20.fig')
 
 fprintf('Generating Figure 21 ...')
 
-methods = {'STEREO' 'stereo3' '100'; ...
-           'SCOTT' 'scott' '[40,40,6]';...
-           'SCOTT' 'scott' '[30,30,16]';...
-           'SCOTT' 'scott' '[24,24,25]';};      
+methods = {'STEREO' 'stereo_adaptor' '100'; ...
+           'SCOTT' 'scott2' '[40,40,6]';...
+           'SCOTT' 'scott2' '[30,30,16]';...
+           'SCOTT' 'scott2' '[24,24,25]';};      
 DegMat = struct('Pm', Pm, 'P1', P1, 'P2', P2);         
 [~, est] = compare_methods(SRI, HSI, MSI, DegMat, [d1 d2], methods); 
 
@@ -70,10 +71,10 @@ saveas(gcf,'figures/fig21.fig')
 
 fprintf('Generating Figure 22 ...')
 
-methods = {'STEREO' 'stereo3' '100'; ...
-           'SCOTT' 'scott' '[40,40,6]';...
-           'SCOTT' 'scott' '[30,30,16]';...
-           'SCOTT' 'scott' '[24,24,25]';};      
+methods = {'STEREO' 'stereo_adaptor' '100'; ...
+           'SCOTT' 'scott2' '[40,40,6]';...
+           'SCOTT' 'scott2' '[30,30,16]';...
+           'SCOTT' 'scott2' '[24,24,25]';};      
 DegMat = struct('Pm', Pm, 'P1', P1, 'P2', P2);         
 [~, est] = compare_methods(SRI, HSI, MSI, DegMat, [d1 d2], methods); 
 

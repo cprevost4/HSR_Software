@@ -1,3 +1,9 @@
+% SVD OF UNFOLDINGS %
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
+% Contact: clemence.prevost@univ-lorraine.fr
+
 %% SVD for Indian Pines 
 
 fprintf('Generating Figure 13...')

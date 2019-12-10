@@ -1,5 +1,8 @@
-addpath ../src
-
+% CONDITIONING FOR NORMAL EQUATIONS %
+% Copyright (c) 2019 Clemence Prevost, Konstantin Usevich, Pierre Comon,
+% David Brie
+% https://github.com/cprevost4/HSR_Software
+% Contact: clemence.prevost@univ-lorraine.fr
 %% Condition number for Indian Pines
 
 fprintf('Generating Figure 17...')
@@ -67,11 +70,11 @@ PU = P1 * U; PV = P2 * V; PW = Pm * W;
 I_H = size(PU,1); J_H = size(PV,1); K_M = size(Pm,1);
 
 sigmaU = zeros(I_H,2); sigmaV = zeros(J_H,2); s1W = zeros(200,1);
-for i=1:size(sigmaU,1), 
+for i=1:size(sigmaU,1) 
   sU = svd(PU(:,1:i)); 
   sigmaU(i,:) = [sU(1) sU(end)]; 
 end
-for i=1:size(sigmaV,1), 
+for i=1:size(sigmaV,1) 
   sV = svd(PV(:,1:i)); 
   sigmaV(i,:) = [sV(1) sV(end)]; 
 end

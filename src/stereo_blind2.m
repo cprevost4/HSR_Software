@@ -34,8 +34,7 @@ if ~isfield(opts,'CPD_Niter') || isempty(opts.CPD_Niter)
     opts.CPD_Niter = 25;
 end
 if ~isfield(opts,'factors') || isempty(opts.factors)
-     [A, B, A_tilde, B_tilde, C] = stereo_init_blind(MSI,HSI, ranks, Pm);
-    
+     [A, B, C, A_tilde, B_tilde, C_tilde] = Blind_TenRec(MSI,tens2mat(HSI,[],3),25,ranks);   
 end
 
 
