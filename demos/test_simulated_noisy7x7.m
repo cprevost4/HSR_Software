@@ -44,7 +44,7 @@ snr_stereo = []; snr_scott = []; snr_tenrec = [];
 
  for r1=1:size(HSI,1)+10
     for r3=1:20
-        R = [r1 r1 r3];
+        R = [r1 r1 r3]
         if not((r3<=size(MSI,3) || r1<=size(HSI,1)) && r3<=(min(r1,size(HSI,1)))^2)%identifiability
              snr_scott(r1,r3) = NaN;
         else
@@ -55,7 +55,6 @@ snr_stereo = []; snr_scott = []; snr_tenrec = [];
  end
  
 figure
-subplot(1,2,1)
 plot(1:size(HSI,1)+10,snr_stereo); hold on;
 plot(1:size(HSI,1)+10, snr_scott(:,7)); hold on;
 plot(1:size(HSI,1)+10, snr_scott(:,15));
@@ -63,8 +62,11 @@ plot(1:size(HSI,1)+10, snr_tenrec);
 legend('STEREO','SCOTT R_3 = N','SCOTT R_3 = 15','TenRec')
 xlabel('F'); ylabel('SNR (dB)');xlim([1 40])
 title('STEREO, TenRec and SCOTT')
-subplot(1,2,2)
+saveas(gcf,'figures/fig10a.fig')
+
+figure
 surf(1:20,1:size(HSI)+10,snr_scott) 
 xlabel('R_3'); ylabel('R_1 = R_2'); title('SCOTT')
-saveas(gcf,'figures/fig10.fig')
+colorbar
+saveas(gcf,'figures/fig10b.fig')
 
