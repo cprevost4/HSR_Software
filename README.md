@@ -5,13 +5,14 @@ Contact: ```clemence.prevost@univ-lorraine.fr```
 
 This MATLAB software reproduces the results from the following article:
 ```
-@unpublished{prevost:hal-01911969,
- TITLE = {{Hyperspectral super-resolution with coupled Tucker approximation: Identifiability and SVD-based algorithms}},
- AUTHOR = {Pr{\'e}vost, Cl{\'e}mence and Usevich, Konstantin and Comon, Pierre and Brie, David},
- URL = {https://hal.archives-ouvertes.fr/hal-01911969},
- YEAR = {2019},
- HAL_ID = {hal-01911969},
- HAL_VERSION = {v3},
+@article{prevost2020hyperspectral,
+  title={Hyperspectral super-resolution with coupled Tucker approximation: Recoverability and SVD-based algorithms},
+  author={Pr{\'e}vost, Cl{\'e}mence and Usevich, Konstantin and Comon, Pierre and Brie, David},
+  journal={IEEE Transactions on Signal Processing},
+  volume={68},
+  pages={931--946},
+  year={2020},
+  publisher={IEEE}
 }
 ```
 <br><br>
